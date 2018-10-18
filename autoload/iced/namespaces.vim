@@ -17,8 +17,8 @@ function! s:open(mode, ns_name) abort
 endfunction
 
 function! s:select(resp) abort
-  if !has_key(a:resp, 'read_value') | return iced#message#error('not_found') | endif
-  call iced#select({'candidates': a:resp['read_value'], 'accept': funcref('s:open')})
+  if !has_key(a:resp, 'value') | return iced#message#error('not_found') | endif
+  call iced#selector({'candidates': a:resp['value'], 'accept': funcref('s:open')})
 endfunction
 
 function! iced#namespaces#list() abort
