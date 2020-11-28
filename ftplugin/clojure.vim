@@ -14,6 +14,13 @@ set cpo&vim
 
 command! IcedBrowseNamespace call iced#namespaces#list()
 
+if !exists('g:iced#palette')
+  let g:iced#palette = {}
+endif
+call extend(g:iced#palette, {
+      \ 'BrowseNamespace': ':IcedBrowseNamespace',
+      \ })
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
